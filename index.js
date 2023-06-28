@@ -5,5 +5,8 @@ import './index.css'
 
 window.Agent = browserAgent()
 
-createApp(vuePersistentComponent(component)).mount('body')
+const scope = window.location.pathname.slice(1)
+const persistentComponent = vuePersistentComponent(component, scope)
 
+createApp(persistentComponent)
+  .mount('body')
