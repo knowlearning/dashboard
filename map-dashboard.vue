@@ -21,7 +21,7 @@
         .forEach(async ([user]) => {
           this.states[user] = await (
             Agent
-              .state(this.scope)
+              .state(this.scope, user)
               .watch(({ state }) => this.states[user] = state)
           )
         })
